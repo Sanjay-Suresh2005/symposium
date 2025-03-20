@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     background: linear-gradient(to bottom, rgba(2, 21, 38, 0.2) 65%, 
                                            rgba(2, 21, 38, 0.5) 75%, 
@@ -711,3 +712,797 @@ contact-section p {
     border-radius: 10px; /* Optional: Add border radius for rounded corners */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for depth */
 }
+=======
+body {
+    background-color: #021526; /* Fallback for unsupported browsers */
+    background: url('moonfall-bg.jpg') no-repeat center top fixed,
+                linear-gradient(to bottom, rgba(2, 21, 38, 0.2) 65%, 
+                                           rgba(2, 21, 38, 0.5) 75%, 
+                                           rgba(2, 21, 38, 0.75) 85%, 
+                                           #021526 100%);
+    background-size: cover;
+    color: white;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 300px; /* Increased for better blending */
+    background: linear-gradient(to bottom, 
+                                rgba(2, 21, 38, 0) 50%, 
+                                rgba(2, 21, 38, 0.3) 70%, 
+                                rgba(2, 21, 38, 0.8) 90%, 
+                                #021526 100%);
+    z-index: 2; /* Brings it above the background */
+    pointer-events: none;
+}
+
+/* Navbar - Enhanced Professional Version */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Further reduced opacity for better blending */
+    background: linear-gradient(to right, 
+                rgba(2, 21, 38, 0.6) 0%,
+                rgba(3, 52, 110, 0.5) 50%,
+                rgba(2, 21, 38, 0.6) 100%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 12px 2%; /* Reduced horizontal padding from 5% to 2% */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(110, 172, 218, 0.15); /* Reduced border opacity */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Reduced shadow */
+    transition: all 0.4s ease;
+}
+
+/* Shrink navbar on scroll with subtle background */
+.navbar.scrolled {
+    padding: 8px 5%;
+    background: rgba(2, 21, 38, 0.85); /* Reduced opacity */
+    border-bottom: 1px solid rgba(110, 172, 218, 0.4);
+}
+
+/* Logo/Brand styling */
+.navbar h1 {
+    color: white;
+    text-align: left;
+    margin: 0;
+    flex: 0.8; /* Reduced from 1 */
+    padding: 0;
+    background: none;
+    box-shadow: none;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(110, 172, 218, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Logo subtle animation */
+.navbar h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.8), transparent);
+    transform: translateX(-100%);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Menu styling */
+#menu { 
+    display: flex; 
+    gap: 20px; /* Reduced from 30px */
+    flex: 1.8; /* Adjusted from 2 */
+    justify-content: center;
+}
+
+#menu a {
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s;
+    position: relative;
+    letter-spacing: 0.5px;
+}
+
+/* Animated underline effect */
+#menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: rgba(110, 172, 218, 0.9);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+#menu a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+#menu a:hover {
+    color: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+    text-shadow: 0 0 8px rgba(110, 172, 218, 0.6);
+}
+
+#menu a.active {
+    color: #6EACDA;
+    font-weight: bold;
+}
+
+#menu p {
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s;
+    margin: 0; /* Added to fix spacing issues */
+}
+
+#menu p:hover {
+    background-color: rgba(110, 172, 218, 0.7);
+    color: #021526;
+}
+
+/* Register button with better positioning */
+.rbutton { 
+    flex: 0.4; /* Reduced from 0.7 */
+    display: flex; 
+    justify-content: flex-end; /* Changed from right to flex-end for better standards */
+    padding-right: 0; /* Removed padding */
+    margin-right: 0; /* Removed margin */
+}
+
+.rbutton button {
+    background: linear-gradient(135deg, #ffffff, #f0f8ff);
+    color: #03346E;
+    border: none;
+    padding: 8px 20px; /* Slightly reduced padding */
+    font-size: 12px; /* Smaller font */
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.3s;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.rbutton button:hover {
+    background: linear-gradient(135deg, #6EACDA, #4a90e2);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(110, 172, 218, 0.5);
+}
+
+.rbutton button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(110, 172, 218, 0.3);
+}
+
+/* Add ripple effect to button */
+.rbutton button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    transform: scale(0);
+    opacity: 0;
+}
+
+.rbutton button:active::after {
+    transform: scale(2);
+    opacity: 0;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+/* Hero Section */
+.hero {
+    padding-top: 80px; /* Added to account for fixed navbar */
+    margin-top: 0; /* Adjusted from 20px */
+    min-height: 80vh; /* Changed height to min-height for better responsiveness */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    background-image: url('moonfall-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Creates a parallax-like effect */
+    
+    /* Add a dark overlay to improve text readability */
+    position: relative;
+}
+
+/* Add this if you want a dark overlay on the background */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(2, 21, 38, 0.5); /* Dark blue with 50% opacity */
+    z-index: 0;
+}
+
+/* Make sure content is above the overlay */
+.hero .title, .hero .countdown-container {
+    position: relative;
+    z-index: 1;
+}
+
+<<<<<<< HEAD
+/* Title */
+.title {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title h1 {
+    margin-top: -70px;
+    font-size: 36px;
+    padding: 15px 30px;
+    background-color: #03234E;
+    border-radius: 10px;
+    width: auto; /* Allows title to resize appropriately */
+    max-width: 90%; /* Prevents overflow on small screens */
+    white-space: normal; /* Allow text to wrap on small screens */
+}
+
+.title h2 { 
+    margin-top: 5px; 
+    font-size: 24px;
+    max-width: 90%; /* Prevents overflow on small screens */
+=======
+/* Enhanced Title Section with Animation */
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    position: relative;
+    padding: 0 15px; /* Add padding for mobile */
+    width: 100%;
+    max-width: 90%; /* Limit maximum width for large screens */
+}
+
+.title h1 {
+    font-size: 36px; /* Slightly reduced from 42px for better visibility */
+    font-weight: 800;
+    margin-top: -20px;
+    letter-spacing: 2px;
+    padding: 15px 30px;
+    border-radius: 10px;
+    /* More transparent background that blends better */
+    background: linear-gradient(135deg, 
+                rgba(3, 52, 110, 0.7), 
+                rgba(15, 76, 129, 0.65));
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    border: 1px solid rgba(110, 172, 218, 0.5);
+    animation: titleFloat 4s ease-in-out infinite;
+    /* Remove nowrap to allow wrapping on small screens */
+    text-align: center;
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5); /* Improve readability */
+    width: auto;
+    display: inline-block;
+}
+
+.title h1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: titleShine 5s infinite;
+}
+
+.title h2 {
+    font-size: 26px;
+    margin-top: 15px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+    background: rgba(3, 52, 110, 0.7);
+    padding: 8px 25px;
+    border-radius: 30px;
+    transform: translateY(-5px);
+    border: 1px solid rgba(110, 172, 218, 0.3);
+}
+
+/* Title animations */
+@keyframes titleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes titleShine {
+    0% { left: -100%; }
+    20% { left: 100%; }
+    100% { left: 100%; }
+}
+
+/* Make responsive */
+@media (max-width: 768px) {
+    .title h1 {
+        font-size: 28px;
+        padding: 12px 25px;
+    }
+    
+    .title h2 {
+        font-size: 18px;
+        padding: 6px 15px;
+    }
+>>>>>>> 877367931eeb7127f2c03ef810bf5982651faa66
+}
+
+/* Countdown Timer */
+.countdown-container { 
+    margin-top: 1px; 
+    margin-bottom: 5px;
+    display: flex; 
+    justify-content: center;
+    width: 100%; /* Full width for better alignment */
+}
+
+#countdownBtn {
+    background: white;
+    color: #03346E;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 25px;
+    border: 2px solid #03346E;
+    transition: 0.3s;
+    max-width: 90%; /* Prevents overflow on small screens */
+}
+
+<<<<<<< HEAD
+#countdownBtn:hover { 
+    background-color: #6EACDA; 
+    color: white; 
+=======
+#countdownBtn:hover { background-color: #6EACDA; color: white; }
+
+/* Enhanced Countdown Timer */
+.countdown-container {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+#countdownBtn {
+    background: linear-gradient(135deg, #03346E, #0f4c81);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 40px;
+    border-radius: 50px;
+    border: 2px solid rgba(110, 172, 218, 0.7);
+    transition: all 0.5s ease;
+    box-shadow: 0 5px 25px rgba(3, 52, 110, 0.5),
+                inset 0 1px 5px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    animation: pulse 2s infinite;
+    transform-style: preserve-3d;
+    letter-spacing: 0.5px;
+}
+
+#countdownBtn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+    animation: shine 3s infinite;
+}
+
+#countdownBtn::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    filter: blur(5px);
+    z-index: -1;
+}
+
+#countdownBtn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 30px rgba(3, 52, 110, 0.7),
+                inset 0 1px 5px rgba(255, 255, 255, 0.4);
+    animation: none;
+    background: linear-gradient(135deg, #0f4c81, #03346E);
+}
+
+/* Animations for countdown button */
+@keyframes shine {
+    0% { left: -100%; }
+    20% { left: 100%; }
+    100% { left: 100%; }
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 5px 25px rgba(3, 52, 110, 0.5); }
+    50% { box-shadow: 0 5px 30px rgba(110, 172, 218, 0.7); }
+    100% { box-shadow: 0 5px 25px rgba(3, 52, 110, 0.5); }
+}
+
+/* Add number animation when countdown changes */
+.countdown-animate {
+    animation: numberChange 0.5s ease-out;
+}
+
+@keyframes numberChange {
+    0% { transform: scale(1.1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+>>>>>>> 877367931eeb7127f2c03ef810bf5982651faa66
+}
+
+.Poster {
+    margin-top: -150px;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Prevent extra space */
+    padding-bottom: 0;
+    width: 100%;
+}
+
+.Poster img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Technical & Non-Technical Sections */
+.maincontainer {
+    background: #021526; /* Solid background color */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding is included in width */
+    margin-top: 10px;
+    position: relative; /* Ensure it stays above the hero section */
+    z-index: 10; /* Higher than the gradient */
+}
+
+h1 {
+    background: #002147;
+    text-align: center;
+    padding: 20px;
+    margin: 10px auto;
+    font-size: 24px;
+    color: white;
+    width: 80%;
+    max-width: 800px; /* Added max-width for larger screens */
+    border-radius: 10px;
+    box-sizing: border-box; /* Ensures padding is included in width */
+}
+
+/* Image Rows */
+.row {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    box-sizing: border-box; /* Ensures padding is included in width */
+}
+
+.row img {
+    width: 250px;
+    height: 350px;
+    object-fit: cover;
+    transition: transform 0.3s;
+    cursor: pointer;
+    margin-bottom: 10px; /* Added space between rows when wrapping */
+}
+
+.row img:hover { transform: scale(1.1); }
+
+/* Footer Section */
+.footer {
+    background: #020b1a;
+    padding: 40px 20px;
+    color: white;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding is included in width */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Changed from center to flex-start for better alignment */
+    max-width: 1200px;
+    margin: auto;
+    flex-wrap: wrap;
+    gap: 20px; /* Added gap for better spacing when wrapped */
+}
+
+/* Team Section */
+.team-section {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap; /* Allow members to wrap on smaller screens */
+    justify-content: center; /* Center team members when wrapped */
+}
+
+.team-member {
+    text-align: center;
+    margin-bottom: 20px; /* Space between members when stacked */
+}
+
+.member-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 10px solid #021526;
+}
+
+.member-name {
+    font-size: 18px;
+    margin: 8px 0;
+    color: white;
+}
+
+.member-position {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Address and Contact Sections */
+.contact-section {
+    text-align: center;
+    max-width: 300px;
+    margin: 0 auto; /* Center on mobile */
+}
+
+.contact-section h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.contact-section p {
+    font-size: 16px;
+    opacity: 0.8;
+    margin: 2px 0; /* Reduces gap between lines */
+}
+
+/* Address Section - Proper Alignment */
+.address-section {
+    text-align: center;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Ensures all lines are center-aligned */
+    margin: 0 auto; /* Center on mobile */
+}
+
+.address-section h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.address-section p {
+    font-size: 16px;
+    opacity: 0.8;
+    margin: 2px 0; /* Reduces gap between lines */
+}
+
+/* KiTE Section */
+#KiTE {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #021526;
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: fit-content;
+    margin: 20px auto; /* Added top/bottom margin */
+}
+
+#KiTE img {
+    height: 40px;
+    width: auto;
+    margin-right: 10px;
+}
+
+#KiTE h1 {
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    background-color: #071b36;
+    width: auto; /* Allows title to resize appropriately */
+    padding: 10px 15px; /* Adjusted padding for better proportions */
+}
+
+/* Improved Media Queries for Responsive Design */
+@media (max-width: 992px) {
+    #menu {
+        gap: 15px;
+        flex: 1.5;
+    }
+    
+    .rbutton button {
+        padding: 8px 15px;
+    }
+    
+    .title h1 {
+        font-size: 30px;
+        padding: 12px 25px;
+    }
+    
+    .title h2 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+    
+    .navbar h1 {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    
+    #menu {
+        margin: 10px 0;
+        gap: 15px;
+        flex-wrap: wrap; /* Allow menu items to wrap */
+        justify-content: center;
+    }
+    
+    .rbutton {
+        padding-right: 0;
+        margin-top: 10px;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .title h1 {
+        margin-top: 0; /* Adjusted for mobile */
+        font-size: 24px;
+        padding: 10px 20px;
+        white-space: normal; /* Allow text wrapping */
+    }
+    
+    .title h2 {
+        font-size: 18px;
+    }
+    
+    .Poster {
+        margin-top: -50px; /* Adjusted for smaller screens */
+    }
+    
+    .row img {
+        width: 45%; /* Two images per row on small screens */
+        height: auto;
+        aspect-ratio: 2/3; /* Maintain aspect ratio */
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .team-section, .contact-section, .address-section {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar h1 {
+        font-size: 22px;
+    }
+    
+    #menu a, #menu p {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+    
+    .title h1 {
+        font-size: 20px;
+    }
+    
+    .title h2 {
+        font-size: 16px;
+    }
+    
+    #countdownBtn {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+    
+    .row img {
+        width: 100%; /* Single column on very small screens */
+    }
+    
+    .member-image {
+        width: 80px;
+        height: 80px;
+        border-width: 6px;
+    }
+}
+>>>>>>> c765d0be39e01a6f3d967ed528b0367e190b460a
