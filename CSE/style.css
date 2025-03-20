@@ -1,5 +1,5 @@
 body {
-    background: url('bg.jpg') no-repeat center top fixed,
+    background: url('moonfall-bg.jpg') no-repeat center top fixed,
                 linear-gradient(to bottom, rgba(2, 21, 38, 0.2) 65%, 
                                            rgba(2, 21, 38, 0.5) 75%, 
                                            rgba(2, 21, 38, 0.75) 85%, 
@@ -30,47 +30,217 @@ body::after {
 }
 
 
-/* Navbar */
+/* Navbar - Enhanced Professional Version */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #021B3A;
-    padding: 10px 30px;
+    /* Further reduced opacity for better blending */
+    background: linear-gradient(to right, 
+                rgba(2, 21, 38, 0.6) 0%,
+                rgba(3, 52, 110, 0.5) 50%,
+                rgba(2, 21, 38, 0.6) 100%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 12px 2%; /* Reduced horizontal padding from 5% to 2% */
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 1000;
+    border-bottom: 1px solid rgba(110, 172, 218, 0.15); /* Reduced border opacity */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Reduced shadow */
+    transition: all 0.4s ease;
 }
 
-/* Some rules are compact */
-.title h2 { margin-top: 5px; font-size: 24px; }
-
-.navbar {
-    position: fixed;
-    top: 0;
-    /* ... */
+/* Shrink navbar on scroll with subtle background */
+.navbar.scrolled {
+    padding: 8px 5%;
+    background: rgba(2, 21, 38, 0.85); /* Reduced opacity */
+    border-bottom: 1px solid rgba(110, 172, 218, 0.4);
 }
 
+/* Logo/Brand styling */
 .navbar h1 {
     color: white;
     text-align: left;
     margin: 0;
-    flex: 1;
+    flex: 0.8; /* Reduced from 1 */
     padding: 0;
     background: none;
     box-shadow: none;
-    display: inline-block; 
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(110, 172, 218, 0.5);
+    position: relative;
+    overflow: hidden;
 }
 
+/* Logo subtle animation */
+.navbar h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.8), transparent);
+    transform: translateX(-100%);
+    animation: shimmer 3s infinite;
+}
 
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Menu styling */
 #menu { 
     display: flex; 
-    gap: 40px;
-    flex: 2; 
+    gap: 20px; /* Reduced from 30px */
+    flex: 1.8; /* Adjusted from 2 */
     justify-content: center;
- }
+}
+
+#menu a {
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s;
+    position: relative;
+    letter-spacing: 0.5px;
+}
+
+/* Animated underline effect */
+#menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: rgba(110, 172, 218, 0.9);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+#menu a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+#menu a:hover {
+    color: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+    text-shadow: 0 0 8px rgba(110, 172, 218, 0.6);
+}
+
+#menu a.active {
+    color: #6EACDA;
+    font-weight: bold;
+}
+
+/* Register button with better positioning */
+.rbutton { 
+    flex: 0.4; /* Reduced from 0.7 */
+    display: flex; 
+    justify-content: flex-end;
+    padding-right: 0; /* Removed padding */
+    margin-right: 0; /* Removed margin */
+}
+
+.rbutton button {
+    background: linear-gradient(135deg, #ffffff, #f0f8ff);
+    color: #03346E;
+    border: none;
+    padding: 8px 20px; /* Slightly reduced padding */
+    font-size: 12px; /* Smaller font */
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.3s;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.rbutton button:hover {
+    background: linear-gradient(135deg, #6EACDA, #4a90e2);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(110, 172, 218, 0.5);
+}
+
+.rbutton button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(110, 172, 218, 0.3);
+}
+
+/* Add ripple effect to button */
+.rbutton button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    transform: scale(0);
+    opacity: 0;
+}
+
+.rbutton button:active::after {
+    transform: scale(2);
+    opacity: 0;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+/* Media query for responsive navbar */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+    
+    .navbar h1 {
+        margin-bottom: 10px;
+    }
+    
+    #menu {
+        margin: 10px 0;
+        gap: 15px;
+    }
+    
+    .rbutton {
+        padding-right: 0;
+        margin-top: 10px;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Ensure button stays in view at all screen sizes */
+@media (max-width: 992px) {
+    #menu {
+        gap: 15px;
+        flex: 1.5;
+    }
+    
+    .rbutton button {
+        padding: 8px 15px;
+    }
+}
+
+/* Some rules are compact */
+.title h2 { margin-top: 5px; font-size: 24px; }
 
 #menu p {
     color: white;
@@ -79,41 +249,58 @@ body::after {
     padding: 4px 12px;
     border-radius: 5px;
     transition: 0.3s;
+    /* styling for paragraph elements */
 }
 
-#menu p:hover, .rbutton button:hover {
+#menu p:hover {
     background-color: #6EACDA;
     color: #021526;
 }
 
-/* Register Button */
-.rbutton { flex: 1; display: flex; justify-content: flex-end; padding-right: 50px; }
-
-.rbutton button {
-    background: white;
-    color: #03346E;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 25px;
-    transition: 0.3s;
+/* Optional: Adjust hover effects to match transparency */
+#menu a:hover, .rbutton button:hover {
+    background-color: rgba(110, 172, 218, 0.7);
+    color: #021526;
 }
 
 /* Hero Section */
 .hero {
     margin-top: 20px;
-    height: 60vh;
+    height: 80vh; /* Increased height for better visibility */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: none;
+    
+    /* Remove the conflicting "background: none;" line */
     background-image: url('moonfall-bg.jpg');
     background-size: cover;
-    background-position: center;}
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Creates a parallax-like effect */
+    
+    /* Add a dark overlay to improve text readability */
+    position: relative;
+}
+
+/* Add this if you want a dark overlay on the background */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(2, 21, 38, 0.5); /* Dark blue with 50% opacity */
+    z-index: 0;
+}
+
+/* Make sure content is above the overlay */
+.hero .title, .hero .countdown-container {
+    position: relative;
+    z-index: 1;
+}
 
 /* Title */
 .title h1 {
@@ -146,16 +333,15 @@ body::after {
 
 
 .Poster {
-        position: relative;
-        z-index: 10;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: -150px; /* Reduce this value if needed */
-        margin-bottom: 20px; /* Prevent extra space */
-        padding-bottom: 0;
-    }
-    
+    margin-top: -150px;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Prevent extra space */
+    padding-bottom: 0;
+}
 
 .Poster img {
     max-width: 80%;
@@ -265,13 +451,13 @@ h1 {
     max-width: 300px;
 }
 
-.contact-section h3 {
+contact-section h3 {
     font-size: 20px;
     margin-bottom: 10px;
     color: white;
 }
 
-.contact-section p {
+contact-section p {
     font-size: 16px;
     opacity: 0.8;
 }
