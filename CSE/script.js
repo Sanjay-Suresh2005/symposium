@@ -23,11 +23,13 @@ document.addEventListener("DOMContentLoaded", function () {
     // Parallax Scrolling & Smooth Fade-Out Effect
     document.addEventListener("scroll", function () {
         let scrollTop = window.scrollY;
-        let bg = document.querySelector(".bg-container");
+        let bg = document.querySelector(".hero"); // Or another appropriate element
         let fadeTrigger = document.querySelector(".maincontainer").offsetTop - 400; // Adjust fade-out point
 
         // Parallax Effect: Moves background slower than content
-        bg.style.transform = `translateY(${scrollTop * 0.4}px)`;
+        if (bg) { // Check if element exists before manipulating it
+            bg.style.transform = `translateY(${scrollTop * 0.4}px)`;
+        }
 
         // Smooth fade-out before the "Technical" section
         if (scrollTop > fadeTrigger) {
@@ -39,11 +41,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Smooth Scroll to Sections When Clicking Navbar Items
-    document.querySelectorAll("#menu p").forEach(item => {
-        item.addEventListener("click", function () {
-            let sectionId = this.innerText.toLowerCase(); // Match section ID with menu name
-            let targetSection = document.querySelector(`.${sectionId}`);
-
+    document.querySelectorAll("#menu a").forEach(item => {
+        item.addEventListener("click", function(e) {
+            e.preventDefault(); // Prevent default anchor behavior
+            let sectionId = this.getAttribute("href"); // Get the href attribute (#home, etc)
+            let targetSection = document.querySelector(sectionId);
+            
             if (targetSection) {
                 window.scrollTo({
                     top: targetSection.offsetTop - 50,
